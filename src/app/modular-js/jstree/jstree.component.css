@@ -1,0 +1,3 @@
+:host ::ng-deep .jstree-open>.jstree-anchor>.anticon-folder:before {
+    content: "\e699";
+}

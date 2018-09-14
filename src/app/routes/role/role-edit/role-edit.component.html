@@ -1,0 +1,19 @@
+<nz-spin [nzSpinning]="isSpinning">
+    <form nz-form [formGroup]="validateForm">
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>角色名称</nz-form-label>
+            <nz-form-control nzSpan="12">
+                <input nz-input placeholder="角色名称" formControlName="name">
+                <nz-form-explain *ngIf="validateForm.get('name').dirty && validateForm.get('name').errors">请输入角色名称!</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7">
+                备注
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <textarea nz-input [nzAutosize]="{ minRows: 5}" placeholder=" 备注 "></textarea>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+</nz-spin>

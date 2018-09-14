@@ -1,0 +1,38 @@
+<split [direction]="direction" style="background:#fff" class="depart-box">
+    <split-area size="20">
+        <nz-card [nzBordered]="false" nzTitle="部门信息列表" [nzExtra]="extraTemplate">
+            <ng-template #extraTemplate>
+                <nz-dropdown [nzTrigger]="'click'" [nzPlacement]="'bottomRight'">
+                    <button nz-button nz-dropdown nzShape="circle" [nzSize]="samll">
+                        <i class="anticon anticon-tool"></i>
+                    </button>
+                    <ul nz-menu>
+                        <li class="ant-dropdown-menu-item">
+                            <a href="javascript:;">
+                                <i class="anticon anticon-plus"></i>&nbsp;&nbsp;新增部门
+                            </a>
+                        </li>
+                        <li class="ant-dropdown-menu-item">
+                            <a href="javascript:;">
+                                <i class="anticon anticon-plus"></i>&nbsp;&nbsp;新增下级部门
+                            </a>
+                        </li>
+                        <li class="ant-dropdown-menu-item">
+                            <a href="javascript:;">
+                                <i class="anticon anticon-delete"></i>&nbsp;&nbsp;删除部门
+                            </a>
+                        </li>
+                    </ul>
+                </nz-dropdown>
+            </ng-template>
+            部门树形结构
+            <!-- <app-jstree></app-jstree> -->
+        </nz-card>
+    </split-area>
+    <split-area size="80">
+        <nz-card [nzBordered]="false" nzTitle="部门结构信息">
+            <app-department-edit></app-department-edit>
+            <!-- <app-resource-edit #resourceEdit [disabled]="disabled" (refreshResourceList)="refreshResourceList($event)"></app-resource-edit> -->
+        </nz-card>
+    </split-area>
+</split>

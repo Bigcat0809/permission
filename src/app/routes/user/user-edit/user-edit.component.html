@@ -1,0 +1,80 @@
+<nz-spin [nzSpinning]="isSpinning">
+    <form nz-form nzLayout="horizontal" [formGroup]="validateForm">
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>
+                用户头像
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <nz-upload class="avatar-uploader" [nzAction]="nzActionUrl" nzListType="picture-card" [(nzFileList)]="fileList" [nzShowButton]="fileList.length < 1" [nzPreview]="handlePreview" [nzBeforeUpload]="beforeUpload" (nzChange)="handleChange($event)">
+                    <i class="anticon anticon-plus"></i>
+                    <div class="ant-upload-text">用户头像</div>
+                </nz-upload>
+                <nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null" (nzOnCancel)="previewVisible=false">
+                    <ng-template #modalContent>
+                        <img [src]="previewImage" [ngStyle]="{ 'width': '100%' }" />
+                    </ng-template>
+                </nz-modal>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>
+                用户名称
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input placeholder="用户名称" formControlName="name">
+                <nz-form-explain *ngIf="validateForm.get('name').dirty && validateForm.get('name').errors">请输入用户名称!</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>
+                登录账号
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input placeholder="登录账号" formControlName="userAccount">
+                <nz-form-explain *ngIf="validateForm.get('userAccount').dirty && validateForm.get('userAccount').errors">请输入登录账号!</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>
+                密码
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input placeholder="密码" formControlName="password">
+                <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">请输入密码!</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>
+                确认密码
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input placeholder="确认密码">
+                <!-- <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">请输入密码!</nz-form-explain> -->
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzFor="no" nzSpan="7">
+                邮箱
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input placeholder="邮箱">
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nzFor="no" nzSpan="7">
+                手机号
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <input nz-input placeholder="手机号">
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7">
+                备注
+            </nz-form-label>
+            <nz-form-control [nzSpan]="12">
+                <textarea nz-input [nzAutosize]="{ minRows: 5}" placeholder=" 备注 "></textarea>
+            </nz-form-control>
+        </nz-form-item>
+    </form>
+</nz-spin>

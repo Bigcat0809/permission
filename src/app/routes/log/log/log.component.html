@@ -1,0 +1,36 @@
+<div>
+    <nz-table [nzData]="logs" [nzLoading]="loading" #logTable nzBordered class="tb-center">
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>用户</th>
+                <th>操作人</th>
+                <th>操作内容</th>
+                <th>操作类型</th>
+                <th>操作时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let log of logTable.data">
+                <td>{{log.code}}</td>
+                <td>{{log.username}}</td>
+                <td>{{log.name}}</td>
+                <td>{{log.context}}</td>
+                <td>{{log.type}}</td>
+                <td>{{log.operateDate | date:"yyyy-MM-dd" }}</td>
+                <td>
+                    <a nz-tooltip="编辑日志信息" (click)="editUser($event, log)">
+                        <i class="anticon anticon-edit"></i>
+                    </a>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <nz-popconfirm (click)="$event.stopPropagation()" [nzTitle]="'确定要删除该用户吗？'" [nzOkText]="'删除'" [nzCancelText]="'取消'" (nzOnConfirm)="deleteUser(user)" [nzPlacement]="'left'">
+                        <a nz-tooltip="删除日志信息" nz-popconfirm>
+                            <i class="anticon anticon-delete"></i>
+                        </a>
+                    </nz-popconfirm>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

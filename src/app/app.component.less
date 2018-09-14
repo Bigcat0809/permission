@@ -1,0 +1,36 @@
+:host ::ng-deep .content {
+    margin-top: 136px;
+    right: 0px;
+    left: 0px;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    -webkit-transition: width 0.2s cubic-bezier(0.25, 0, 0.15, 1),
+        translate 0.2s cubic-bezier(0.25, 0, 0.15, 1);
+    transition: width 0.2s cubic-bezier(0.25, 0, 0.15, 1),
+        translate 0.2s cubic-bezier(0.25, 0, 0.15, 1);
+    z-index: 14;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+:host ::ng-deep .tab-body {
+    height: 100%;
+}
+:host ::ng-deep .table-button {
+    margin-bottom: 20px;
+}
+
+:host ::ng-deep .table-button button {
+    margin: 0px 10px;
+}
+:host ::ng-deep th,
+:host ::ng-deep td {
+    text-align: center !important;
+}
+:host ::ng-deep .depart-box .ant-card-extra{
+    padding:12px 0
+}

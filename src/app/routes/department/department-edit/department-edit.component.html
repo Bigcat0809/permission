@@ -1,0 +1,43 @@
+<nz-spin [nzSpinning]="isSpinning">
+    <form nz-form nzLayout="horizontal">
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>部门编码</nz-form-label>
+            <nz-form-control nzSpan="12">
+                <input nz-input placeholder="部门编码">
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7" nzRequired>部门名称</nz-form-label>
+            <nz-form-control nzSpan="12">
+                <input nz-input placeholder="名称">
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7">独立应用部门</nz-form-label>
+            <nz-form-control nzSpan="12">
+                <nz-radio-group>
+                    <label nz-radio nzValue="true">是</label>
+                    <label nz-radio nzValue="false">否</label>
+                </nz-radio-group>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7">扩展属性1</nz-form-label>
+            <nz-form-control nzSpan="12">
+                <input nz-input placeholder="扩展属性1">
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row>
+            <nz-form-label nzFor="no" nzSpan="7">扩展属性2</nz-form-label>
+            <nz-form-control nzSpan="12">
+                <input nz-input placeholder="扩展属性2">
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item nz-row>
+            <div nz-col [nzOffset]="7" [nzSpan]="12">
+                <button nz-button nzType="primary">
+                    <i class="anticon anticon-save"></i>保 存</button>
+            </div>
+        </nz-form-item>
+    </form>
+</nz-spin>

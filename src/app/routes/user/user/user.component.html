@@ -1,0 +1,56 @@
+<div>
+    <div class="table-button">
+        <button nz-button nzType="primary" (click)="addUser()">
+            <i class="anticon anticon-plus"></i>
+            <span>新增用户</span>
+        </button>
+        <button nz-button nzType="primary">
+            <i class="anticon anticon-tool"></i>
+            <span>设置角色</span>
+        </button>
+        <button nz-button nzType="primary">
+            <i class="anticon anticon-tool"></i>
+            <span>重置密码</span>
+        </button>
+        <nz-modal [nzVisible]="isUserEditNzVisible" [nzTitle]="userEditTitle" [nzContent]="userEditContent" [nzFooter]="userEditFooter" (nzOnCancel)="closeModal($event)">
+            <ng-template #userEditTitle>
+                {{id==null ? '新增用户' : '编辑用户'}}
+            </ng-template>
+            <app-user-edit #userEditContent></app-user-edit>
+            <ng-template #userEditFooter>
+                <button nz-button nzType="default" (click)="closeModal($event)">取消</button>
+                <button nz-button nzType="primary" (click)="saveEditUser($event)">提交</button>
+            </ng-template>
+        </nz-modal>
+    </div>
+    <nz-table [nzData]="users" [nzLoading]="loading" #userTable nzBordered class="tb-center">
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>账户</th>
+                <th>所属部门</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userTable.data">
+                <td>{{user.name}}</td>
+                <td>{{user.userAccount}}</td>
+                <td>{{user.department}}</td>
+                <td>{{user.createDate | date:"yyyy-MM-dd" }}</td>
+                <td>
+                    <a nz-tooltip="编辑用户信息" (click)="editUser($event, user)">
+                        <i class="anticon anticon-edit"></i>
+                    </a>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <nz-popconfirm (click)="$event.stopPropagation()" [nzTitle]="'确定要删除该用户吗？'" [nzOkText]="'删除'" [nzCancelText]="'取消'" (nzOnConfirm)="deleteUser(user)" [nzPlacement]="'left'">
+                        <a nz-tooltip="删除用户信息" nz-popconfirm>
+                            <i class="anticon anticon-delete"></i>
+                        </a>
+                    </nz-popconfirm>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

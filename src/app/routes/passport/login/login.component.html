@@ -1,0 +1,34 @@
+<div class="login-form">
+    <form nz-form [formGroup]="form" (ngSubmit)="submit()" role="form">
+        <div style="text-align: center;">
+            <h2 style="color: #fff">用户登录</h2>
+        </div>
+        <nz-divider style="margin-top: 15px; margin-bottom: 50px"></nz-divider>
+        <nz-form-item>
+            <nz-form-control>
+                <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-user">
+                    <input nz-input formControlName="userName" placeholder="请输入账户名">
+                </nz-input-group>
+                <nz-form-explain *ngIf="userName.dirty && userName.errors">请输入账户名且至少五个字符！</nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control>
+                <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-lock">
+                    <input nz-input type="password" formControlName="password" placeholder="请输入密码">
+                </nz-input-group>
+                <nz-form-explain *ngIf="password.dirty && password.errors">
+                    请输入密码！
+                </nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-col [nzSpan]="12">
+                <label nz-checkbox formControlName="remember">自动登录</label>
+            </nz-col>
+        </nz-form-item>
+        <nz-form-item>
+            <button nz-button type="submit" nzType="primary" nzSize="large" [nzLoading]="loading" class="ant-btn__block">登录</button>
+        </nz-form-item>
+    </form>
+</div>

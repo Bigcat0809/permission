@@ -1,0 +1,38 @@
+{
+    "app": {
+        "name": "Alain",
+        "description": "Ng-zorro admin panel front-end framework"
+    },
+    "user": {
+        "name": "Admin",
+        "avatar": "./assets/tmp/img/avatar.jpg",
+        "email": "cipchk@qq.com"
+    },
+    "menu": [{
+        "text": "",
+        "group": true,
+        "children": [{
+                "text": "系统管理",
+                "icon": "iconfont icon-setting",
+                "children": [{
+                        "text": "用户管理",
+                        "link": "/user"
+                    },
+                    {
+                        "text": "角色管理",
+                        "link": "/role"
+                    },
+                    {
+                        "text": "部门管理",
+                        "link": "/department"
+                    }
+                ]
+            },
+            {
+                "text": "日志管理",
+                "icon": "iconfont icon-log",
+                "link": "/log"
+            }
+        ]
+    }]
+}
